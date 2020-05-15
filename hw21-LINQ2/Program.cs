@@ -32,26 +32,30 @@ namespace hw21_LINQ2
             var num2 = new string(input.SkipWhile(i => i != '+' && i != '-' && i != '*' && i != '/').
                                       Where(i => (int)i >= 48 && (int)i <= 57).ToArray());
             var oper = input.First(i => i == '+' || i == '-' || i == '*' || i == '/');
-            double ans;
+            Console.ReadKey();
+        }
+
+        public string Calculate(string num1, string oper, string num2)
+        {
+            decimal ans = 0;
             switch (oper)
             {
-                case '+':
+                case "+":
                     ans = int.Parse(num1) + int.Parse(num2);
                     break;
-                case '-':
+                case "-":
                     ans = int.Parse(num1) - int.Parse(num2);
                     break;
-                case '*':
+                case "*":
                     ans = int.Parse(num1) * int.Parse(num2);
                     break;
-                case '/':
-                    ans = Math.Round(int.Parse(num1) / int.Parse(num2));
+                case "/":
+                    ans = int.Parse(num1) / int.Parse(num2);
                     break;
-
-            }
-
-            Console.Write($"{num1} {oper} {num2}");
-            Console.ReadKey();
+                default:
+                    break;
+            }             
+            return Math.Round(ans).ToString();
         }
     }
     
