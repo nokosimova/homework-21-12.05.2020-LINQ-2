@@ -29,9 +29,27 @@ namespace hw21_LINQ2
             input = Console.ReadLine().ToCharArray();
             var num1 = new string(input.TakeWhile(i => i != '+' && i != '-' && i != '*' && i != '/').
                                       Where(i => (int)i >= 48 && (int)i <= 57).ToArray());
-            var oper = input.First(i => i == '+' || i == '-' || i == '*' || i == '/');
             var num2 = new string(input.SkipWhile(i => i != '+' && i != '-' && i != '*' && i != '/').
                                       Where(i => (int)i >= 48 && (int)i <= 57).ToArray());
+            var oper = input.First(i => i == '+' || i == '-' || i == '*' || i == '/');
+            double ans;
+            switch (oper)
+            {
+                case '+':
+                    ans = int.Parse(num1) + int.Parse(num2);
+                    break;
+                case '-':
+                    ans = int.Parse(num1) - int.Parse(num2);
+                    break;
+                case '*':
+                    ans = int.Parse(num1) * int.Parse(num2);
+                    break;
+                case '/':
+                    ans = Math.Round(int.Parse(num1) / int.Parse(num2));
+                    break;
+
+            }
+
             Console.Write($"{num1} {oper} {num2}");
             Console.ReadKey();
         }
