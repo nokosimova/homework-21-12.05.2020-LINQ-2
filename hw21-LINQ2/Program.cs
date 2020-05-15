@@ -6,7 +6,7 @@ namespace hw21_LINQ2
     {
         static void Main(string[] args)
         {
-            //-----//
+            //---1---//
             Console.WriteLine("---Problem-1---");
             Console.Write("Write some text:  ");
             char[] input = Console.ReadLine().ToCharArray();
@@ -15,7 +15,7 @@ namespace hw21_LINQ2
                                                       i == 'i' ? '3': i == 'o'? '4':
                                                       i == 'u' ? '5': i).ToArray());
             Console.Write(answer);
-            //-----//
+            //---2---//
             Console.WriteLine("---Problem-2---");
             Console.Write("Write some text:  ");
             input = Console.ReadLine().ToCharArray();
@@ -24,7 +24,8 @@ namespace hw21_LINQ2
                                                   i == '3' ? 'i' : i == '4' ? 'o' :
                                                   i == '5' ? 'u' : i).ToArray());
             Console.Write(answer);
-            //------//
+           
+            //---3---//
             Console.WriteLine("---Problem-3---");
             Console.Write("Write some text:  ");
             input = Console.ReadLine().ToCharArray();
@@ -36,14 +37,13 @@ namespace hw21_LINQ2
             answer = Calculate(num1, oper, num2);
             Console.WriteLine($"Result : {answer}");
             Console.WriteLine($"Because {int.Parse(num1)} {oper} {int.Parse(num2)} = {answer}");
-            //------//
+            
+            //---4---//
             Console.WriteLine("---Problem-4---");
             Console.Write("Write some camelText:  ");
             input = Console.ReadLine().ToCharArray();
             char[] space = new string(' ', input.Length).ToCharArray();
-            var ans = input.Zip(space, (ltr, spc) => (ltr >= 'A' && ltr <= 'Z') ? spc.ToString() + ltr.ToString() : ltr.ToString());
-            foreach (var i in ans)
-                Console.Write(i);
+            var ans =string.Join("", input.Zip(space,(ltr, spc)=>(ltr >= 'A' && ltr <= 'Z')?spc.ToString() + ltr.ToString():ltr.ToString()));
             Console.ReadKey();
         }
 
