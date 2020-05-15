@@ -41,7 +41,7 @@ namespace hw21_LINQ2
             Console.Write("Write some camelText:  ");
             input = Console.ReadLine().ToCharArray();
             char[] space = new string(' ', input.Length).ToCharArray();
-            var ans = input.Zip(space, (ltr, spc) => (ltr >= 'A' && ltr <= 'Z') ? spc + ltr : ltr);
+            var ans = input.Zip(space, (ltr, spc) => (ltr >= 'A' && ltr <= 'Z') ? spc.ToString() + ltr.ToString() : ltr.ToString());
             foreach (var i in ans)
                 Console.Write(i);
             Console.ReadKey();
