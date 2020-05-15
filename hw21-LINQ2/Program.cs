@@ -6,6 +6,7 @@ namespace hw21_LINQ2
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("---Problem-1---");
             Console.Write("Write some text:  ");
             char[] input = Console.ReadLine().ToCharArray();
             Console.Write("Result text:  ");
